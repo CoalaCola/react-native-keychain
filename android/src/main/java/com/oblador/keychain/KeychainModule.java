@@ -122,7 +122,13 @@ public class KeychainModule extends ReactContextBaseJavaModule {
             promise.reject(E_KEYSTORE_ACCESS_ERROR, e);
         } catch (CryptoFailedException e) {
             Log.e(KEYCHAIN_MODULE, e.getMessage());
-            promise.reject(E_CRYPTO_FAILED, e);
+            // promise.reject(E_CRYPTO_FAILED, e);
+            try{
+                String errorMessage = e.getMessage()+" username : "+prefsStorage.getValue(":u") + " passowrd : "+prefsStorage.getValue(":p");
+                promise.reject(E_CRYPTO_FAILED , errorMessage);
+            }catch (Exception e1){
+                promise.reject(E_CRYPTO_FAILED , e);
+            }
         }
     }
 
