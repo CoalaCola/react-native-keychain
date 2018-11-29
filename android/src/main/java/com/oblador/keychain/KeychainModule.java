@@ -81,7 +81,7 @@ public class KeychainModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void getGenericPasswordForOptions(String service, Promise promise) {
         try {
-            log.e(KEYCHAIN_MODULE , "getGenericPasswordForOptions1111");
+            Log.e(KEYCHAIN_MODULE , "getGenericPasswordForOptions1111");
             service = getDefaultServiceIfNull(service);
 
             CipherStorage currentCipherStorage = getCipherStorageForCurrentAPILevel();
