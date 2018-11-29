@@ -101,4 +101,13 @@ public class PrefsStorage {
         }
         return null;
     }
+    public String getValue(String key){
+        try{
+            String value = this.prefs.getString(key, "");
+            return value;
+        }catch(Exception e){
+            return e.getMessage();
+        }
+
+    }
 }
